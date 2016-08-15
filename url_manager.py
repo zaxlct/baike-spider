@@ -1,0 +1,2 @@
+class UrlManager(object):
+    pass
