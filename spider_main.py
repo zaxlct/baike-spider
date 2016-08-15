@@ -10,6 +10,7 @@ class SpiderMain(object):
         self.outputer = html_outputer.HtmlOutputer()
 
     def craw(self, root_url): # craw 方法，爬虫调度程序
+        count = 1
         # 入口 url 添加到 url 管理器
         self.urls.add_new_url(root_url)
 
@@ -17,6 +18,7 @@ class SpiderMain(object):
         white self.urls.has_new_url():
             # 当 url 管理器里待爬取的 url 时，获取一个 url
             new_url = self.urls.get_new_url()
+            print('craw %d : %s % (count, new_url)') # 打印传入的第几个 url
             # 启动下载器并存储
             html_cont = self.download.download(new_url)
             # 解析数据
@@ -26,7 +28,11 @@ class SpiderMain(object):
             # 收集数据
             self.outputer.collect_data(new_data)
 
-        # 输出收集好的数据    
+            if count == 1000:
+                break
+            count+=1
+
+        # 输出收集好的数据
         self.outputer.output_html()
 
 if __name__ == "__main__":
