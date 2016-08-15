@@ -1,3 +1,5 @@
+## -*- coding: utf-8 -*-
+
 class HtmlOutputer(object):
     def __init__(self):
         self.datas = []
@@ -7,23 +9,24 @@ class HtmlOutputer(object):
             return
         self.datas.append(data)
 
-    def outputer_html(self)    :
-        fout = open('outputer_html', 'w')
+    def output_html(self)    :
+        fout = open('outputer_html', 'w', encoding="utf-8")
 
-        font.write('<html>')
-        font.write('<body>')
-        font.write('<table>')
+        fout.write('<html>')
+        fout.write("<head><meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\"></head>")
+        fout.write('<body>')
+        fout.write('<table>')
 
         # ascii python 默认编码
         for data in self.datas:
             fout.write('<tr>')
             fout.write('<td>%s</td>' % data['url'])
-            fout.write('<td>%s</td>' % data['title'].encode('utf-8'))
-            fout.write('<td>%s</td>' % data['summary'].encode('utf-8'))
+            fout.write('<td>%s</td>' % data['title'])
+            fout.write('<td>%s</td>' % data['summary'])
             fout.write('</tr>')
 
-        font.write('</table>')
-        font.write('</body>')
-        font.write('</html>')
+        fout.write('</table>')
+        fout.write('</body>')
+        fout.write('</html>')
 
         fout.close()

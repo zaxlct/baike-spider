@@ -1,12 +1,15 @@
-from urllib import request
+## -*- coding: utf-8 -*-
+
+# from urllib import request
+import urllib.request
 
 class HtmlDownloader(object):
 
     def download(self, url):
         if url is None:
             return None
-        response =  request.urlopen(url)
-        if response.getcode() !== 200:
+        response = urllib.request.urlopen(url)
+        if response.getcode() != 200:
             return None
 
         return response.read()

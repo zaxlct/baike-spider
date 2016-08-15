@@ -1,3 +1,4 @@
+## -*- coding: utf-8 -*-
 class UrlManager(object):
 # url 管理器需要维护待爬取的 url 列表 和 已爬取的 url 列表
     def __init__(self):
