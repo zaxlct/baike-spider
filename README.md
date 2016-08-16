@@ -10,7 +10,7 @@ python3
 ### 运行
     python spider_main.py
 
-如果爬取不了,则百度修改了页面,根据页面修改爬取规则
+如果爬取不了，则百度修改了页面，根据页面修改爬取规则（ html_parser.py 修改规则）
 
 * spider_main 爬虫总调度程序
 * url_manager url 管理器
