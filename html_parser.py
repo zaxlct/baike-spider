@@ -26,6 +26,7 @@ class HtmlParser(object):
 
          # <dd class="lemmaWgt-lemmaTitle-title"> <h1>Python</h1>
         title_node = soup.find('dd', class_="lemmaWgt-lemmaTitle-title")
+        # 如果没找到 'lemmaWgt-lemmaTitle-title' 类，直接跳过
         if title_node == None:
             res_data = {}
             return res_data
