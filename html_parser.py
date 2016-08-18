@@ -14,6 +14,8 @@ class HtmlParser(object):
             new_url = link['href']
             # 让 new_url 以 page_url 为模板拼接成一个全新的 url
             new_full_url = urllib.parse.urljoin(page_url, new_url)
+            print(new_url) # /view/10812319.htm
+            print(new_full_url) # http://baike.baidu.com/view/10812319.htm
             new_urls.add(new_full_url)
         return new_urls
 
@@ -28,7 +30,8 @@ class HtmlParser(object):
         title_node = soup.find('dd', class_="lemmaWgt-lemmaTitle-title")
         # 如果没找到 'lemmaWgt-lemmaTitle-title' 类，直接跳过
         if title_node == None:
-            res_data = {}
+            res_data['title'] = ''
+            res_data['summary'] = ''
             return res_data
         else:
             title_node = title_node.find("h1")

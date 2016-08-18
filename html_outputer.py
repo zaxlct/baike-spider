@@ -9,8 +9,8 @@ class HtmlOutputer(object):
             return
         self.datas.append(data)
 
-    def output_html(self)    :
-        fout = open('outputer_html', 'w', encoding="utf-8")
+    def output_html(self):
+        fout = open('outputer_html', 'w', encoding='utf-8')
 
         fout.write('<html>')
         fout.write("<head><meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\"></head>")
